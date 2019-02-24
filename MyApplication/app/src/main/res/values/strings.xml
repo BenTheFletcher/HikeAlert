@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">HikeAlert</string>
+    <string name="title_activity_emergency_options">emergencyOptions</string>
+
+    <string name="title_activity_user_map">userMap</string>
+    <string name="dummy_button">Dummy Button</string>
+    <string name="dummy_content">DUMMY\nCONTENT</string>
+    <string name="title_activity_about_page">AboutPage</string>
+    <string name="title_activity_map__user">Map</string>
+    <string name="title_activity_confirm_page">ConfirmPage</string>
+</resources>

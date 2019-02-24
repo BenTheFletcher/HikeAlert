@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#c5c5c5"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context=".emergencyOptions"
+    tools:showIn="@layout/activity_emergency_options">
+
+
+    <TextView
+        android:id="@+id/Header"
+        android:layout_width="325dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="50dp"
+        android:fontFamily="sans-serif-black"
+        android:text="Emergency Options"
+        android:textColor="@color/colorPrimary"
+        android:textSize="36sp"
+        android:typeface="normal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/Main_Menu"
+        style="@android:style/Widget.DeviceDefault.Button.Toggle"
+        android:layout_width="300dp"
+        android:layout_height="65dp"
+        android:layout_marginTop="30dp"
+        android:background="@drawable/button_rounded_blue"
+        android:fontFamily="sans-serif-black"
+        android:onClick="goToMainMenu"
+        android:text="Back to Main Menu"
+        android:textAllCaps="false"
+        android:textSize="24sp"
+        android:textStyle="bold|italic"
+        android:typeface="normal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Header" />
+
+    <Button
+        android:id="@+id/Level_One"
+        android:layout_width="325dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="25dp"
+        android:layout_marginBottom="20dp"
+        android:background="@drawable/button_rounded_green"
+        android:fontFamily="monospace"
+        android:text="Level 1: Dangerous Conditions Reporting"
+        android:textAllCaps="false"
+        android:textSize="24sp"
+        android:typeface="monospace"
+        android:onClick="goToConfirmPage"
+        app:layout_constraintBottom_toTopOf="@+id/Level_Two"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Main_Menu" />
+
+    <Button
+        android:id="@+id/Level_Two"
+        android:layout_width="325dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="20dp"
+        android:background="@drawable/button_rounded_yellow"
+        android:fontFamily="monospace"
+        android:text="Level 2: Assistance Required\n(Not Immediate Danger)"
+        android:textAllCaps="false"
+        android:textColor="#000000"
+        android:textSize="24sp"
+        android:typeface="monospace"
+        android:onClick="goToConfirmPage"
+        app:layout_constraintBottom_toTopOf="@+id/Level_Three"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Level_One" />
+
+    <Button
+        android:id="@+id/Level_Three"
+        android:layout_width="325dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="35dp"
+        android:background="@drawable/button_rounded_red"
+        android:fontFamily="monospace"
+        android:text="Level 3: Emergency\n(LIFE AT RISK)"
+        android:textAllCaps="false"
+        android:textSize="24sp"
+        android:typeface="monospace"
+        android:visibility="visible"
+        android:onClick="goToConfirmPage"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Level_Two" />
+</android.support.constraint.ConstraintLayout>
