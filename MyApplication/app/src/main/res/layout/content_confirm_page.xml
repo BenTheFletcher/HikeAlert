@@ -4,8 +4,22 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#c5c5c5"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context=".ConfirmPage"
     tools:showIn="@layout/activity_confirm_page">
 
+    <TextView
+        android:id="@+id/confirmPage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="75dp"
+        android:fontFamily="sans-serif-black"
+        android:text="Message Confirmed"
+        android:textColor="@color/colorPrimary"
+        android:textSize="36sp"
+        android:typeface="normal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 </android.support.constraint.ConstraintLayout>
