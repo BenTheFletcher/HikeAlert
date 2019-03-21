@@ -23,4 +23,16 @@ public class emergencyOptions extends AppCompatActivity {
         Intent intent = new Intent(this, ConfirmPage.class);
         startActivity(intent);
     }
+    public void goToLvlOneDialogue (View view) {
+        Intent intent = new Intent(this, LvlOneDialogue.class);
+        startActivity(intent);
+    }
+    public void goToLvlTwoDialogue (View view) {
+        Intent intent = new Intent(this, LvlTwoDialogue.class);
+        startActivity(intent);
+    }
+    public void goToLvlThreeDialogue (View view) {
+        Intent intent = new Intent(this, LvlThreeDialogue.class);
+        startActivity(intent);
+    }
 }

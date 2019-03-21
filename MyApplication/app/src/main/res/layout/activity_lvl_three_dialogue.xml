@@ -4,8 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".emergencyOptions">
+    tools:context=".LvlThreeDialogue">
 
-    <include layout="@layout/content_emergency_options" />
+    <include layout="@layout/content_lvl_three_dialogue" />
 
 </android.support.design.widget.CoordinatorLayout>

@@ -16,9 +16,21 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme.NoActionBar">
         <activity
+            android:name=".LvlThreeDialogue"
+            android:label="@string/title_activity_lvl_three_dialogue"
+            android:theme="@style/AppTheme.NoActionBar.NoActionBar"></activity>
+        <activity
+            android:name=".LvlTwoDialogue"
+            android:label="@string/title_activity_lvl_two_dialogue"
+            android:theme="@style/AppTheme.NoActionBar.NoActionBar" />
+        <activity
+            android:name=".LvlOneDialogue"
+            android:label="@string/title_activity_lvl_one_dialogue"
+            android:theme="@style/AppTheme.NoActionBar.NoActionBar" />
+        <activity
             android:name=".ConfirmPage"
             android:label="@string/title_activity_confirm_page"
-            android:theme="@style/AppTheme.NoActionBar.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar.NoActionBar" />
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.
              (See the file "res/values/google_maps_api.xml").

@@ -8,4 +8,7 @@
     <string name="title_activity_about_page">AboutPage</string>
     <string name="title_activity_map__user">Map</string>
     <string name="title_activity_confirm_page">ConfirmPage</string>
+    <string name="title_activity_lvl_one_dialogue">LvlOneDialogue</string>
+    <string name="title_activity_lvl_two_dialogue">LvlTwoDialogue</string>
+    <string name="title_activity_lvl_three_dialogue">LvlThreeDialogue</string>
 </resources>

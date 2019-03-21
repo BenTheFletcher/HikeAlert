@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#c5c5c5"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context=".LvlThreeDialogue"
+    tools:showIn="@layout/activity_lvl_three_dialogue">
+
+    <Button
+        android:id="@+id/no_button"
+        android:layout_width="115dp"
+        android:layout_height="75dp"
+        android:layout_marginTop="86dp"
+        android:layout_marginEnd="50dp"
+        android:background="@drawable/button_rounded_red"
+        android:fontFamily="sans-serif-black"
+        android:onClick="goToEmergencyOptions"
+        android:text="NO"
+        android:textColor="@android:color/black"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView3" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="130dp"
+        android:text="Level 3: Emergency Life-at-Risk, Emergency Service Required\n\nAre you sure that you would like to request Emergency Services? "
+        android:textColor="@android:color/black"
+        android:textSize="24sp"
+        app:fontFamily="sans-serif"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/HikeAlert" />
+
+    <Button
+        android:id="@+id/yes_button"
+        android:layout_width="115dp"
+        android:layout_height="75dp"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="86dp"
+        android:background="@drawable/button_rounded_green"
+        android:fontFamily="sans-serif-black"
+        android:onClick="goToConfirmPage"
+        android:text="YES"
+        android:textColor="@android:color/black"
+        android:textSize="24sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView3" />
+
+    <TextView
+        android:id="@+id/HikeAlert"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:fontFamily="sans-serif-black"
+        android:text="Are You Sure?"
+        android:textColor="@color/colorPrimary"
+        android:textSize="36sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+</android.support.constraint.ConstraintLayout>
