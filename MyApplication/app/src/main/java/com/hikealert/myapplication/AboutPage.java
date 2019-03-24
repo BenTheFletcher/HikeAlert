@@ -18,5 +18,13 @@ public class AboutPage extends AppCompatActivity {
     public void goToMainMenu (View view) {
         Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
+        onBackPressed();
     }
+
+    /*public void onBackPressed() {
+        Intent intent = new Intent();
+        intent.setAction(Intent.ACTION_MAIN);
+        intent.addCategory(Intent.CATEGORY_HOME);
+        startActivity(intent);
+    }*/
 }

@@ -10,18 +10,25 @@
     tools:context=".ConfirmPage"
     tools:showIn="@layout/activity_confirm_page">
 
-
-
     <TextView
         android:id="@+id/confirmPage"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="75dp"
         android:fontFamily="sans-serif-black"
-        android:text="Message Confirmed"
+        android:text="Request Confirmed"
         android:textColor="@color/colorPrimary"
         android:textSize="36sp"
         android:typeface="normal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />

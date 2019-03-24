@@ -18,6 +18,7 @@ public class emergencyOptions extends AppCompatActivity {
     public void goToMainMenu (View view) {
         Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
+        onBackPressed();
     }
     public void goToConfirmPage (View view) {
         Intent intent = new Intent(this, ConfirmPage.class);
@@ -26,13 +27,22 @@ public class emergencyOptions extends AppCompatActivity {
     public void goToLvlOneDialogue (View view) {
         Intent intent = new Intent(this, LvlOneDialogue.class);
         startActivity(intent);
+        onBackPressed();
     }
     public void goToLvlTwoDialogue (View view) {
         Intent intent = new Intent(this, LvlTwoDialogue.class);
         startActivity(intent);
+        onBackPressed();
     }
     public void goToLvlThreeDialogue (View view) {
         Intent intent = new Intent(this, LvlThreeDialogue.class);
         startActivity(intent);
+        onBackPressed();
     }
+    /*public void onBackPressed() {
+        Intent intent = new Intent();
+        intent.setAction(Intent.ACTION_MAIN);
+        intent.addCategory(Intent.CATEGORY_HOME);
+        startActivity(intent);
+    }*/
 }

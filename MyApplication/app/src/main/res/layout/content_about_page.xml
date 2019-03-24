@@ -45,8 +45,8 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="50dp"
         android:layout_marginBottom="75dp"
-        android:text="HikeAlert is a mobile application developed for hikers who may find themselves lost or in distress and unable to access the cellular network.\n\nThe Map Overview will use your phones GPS to get an aerial overview of your location.\n\nThe View Emergency Options will allow you to send out a emergency request or unsafe conditions alert to the closest receiving station. After sending an emergency request, you will receive a confirmation that your request was received. This should be used as a last resort.
-"
+        android:text="HikeAlert is a mobile application developed for hikers who may find themselves lost or in distress and unable to access the cellular network.\n\nThe Map Overview will use your phone GPS to get an aerial overview of your location.
+        \n\nThe View Emergency Options will allow you to send out an emergency request or unsafe conditions alert to the closest receiving station. After sending an emergency request, you will receive a confirmation that your request was received. This should be used as a last resort."
         android:textColor="@color/colorPrimary"
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
