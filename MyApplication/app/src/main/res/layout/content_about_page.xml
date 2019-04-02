@@ -32,7 +32,7 @@
         android:onClick="goToMainMenu"
         android:text="Back to Main Menu"
         android:textAllCaps="false"
-        android:textSize="24sp"
+        android:textSize="30sp"
         android:textStyle="bold|italic"
         android:typeface="normal"
         app:layout_constraintEnd_toEndOf="parent"

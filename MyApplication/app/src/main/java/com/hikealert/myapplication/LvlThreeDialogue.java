@@ -18,6 +18,7 @@ public class LvlThreeDialogue extends AppCompatActivity {
     public void goToConfirmPage(View view) {
         Intent intent = new Intent(this, ConfirmPage.class);
         startActivity(intent);
+        onBackPressed();
     }
     public void goToEmergencyOptions(View view) {
         Intent intent = new Intent(this, emergencyOptions.class);

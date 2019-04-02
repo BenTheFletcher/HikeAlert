@@ -1,5 +1,6 @@
 package com.hikealert.myapplication;
 
+import android.bluetooth.BluetoothAdapter;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
@@ -39,10 +40,4 @@ public class emergencyOptions extends AppCompatActivity {
         startActivity(intent);
         onBackPressed();
     }
-    /*public void onBackPressed() {
-        Intent intent = new Intent();
-        intent.setAction(Intent.ACTION_MAIN);
-        intent.addCategory(Intent.CATEGORY_HOME);
-        startActivity(intent);
-    }*/
 }

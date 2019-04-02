@@ -43,17 +43,18 @@ public class Map_User extends FragmentActivity implements OnMapReadyCallback {
               googleMap.getUiSettings().setMyLocationButtonEnabled(true);
               LocationManager locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
               Criteria criteria = new Criteria();
+              mMap.setMapType(GoogleMap.MAP_TYPE_SATELLITE);
 
               Location location = locationManager.getLastKnownLocation(locationManager.getBestProvider(criteria, false));
               if (location != null)
               {
-                  googleMap.animateCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(location.getLatitude(), location.getLongitude()), 13));
+                  googleMap.animateCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(location.getLatitude(), location.getLongitude()), 13.0f));
 
                   CameraPosition cameraPosition = new CameraPosition.Builder()
                           .target(new LatLng(location.getLatitude(), location.getLongitude()))      // Sets the center of the map to location user
-                          .zoom(20)                   // Sets the zoom
+                          .zoom(18)                   // Sets the zoom
                           .bearing(0)                // Sets the orientation of the camera to east
-                          .tilt(40)                   // Sets the tilt of the camera (degrees)
+                          .tilt(0)                   // Sets the tilt of the camera (degrees)
                           .build();                   // Creates a CameraPosition from the builder
                   googleMap.animateCamera(CameraUpdateFactory.newCameraPosition(cameraPosition));
               }

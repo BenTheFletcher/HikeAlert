@@ -1,11 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.hikealert.myapplication">
+    package="com.hikealert.myapplication"
+    android:screenOrientation="nosensor">
     <!--
          The ACCESS_COARSE/FINE_LOCATION permissions are not required to use
          Google Maps Android API v2, but you must specify either coarse or fine
          location permissions for the 'MyLocation' functionality.
     -->
+
+    <uses-permission android:name="android.permission.BLUETOOTH" />
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_COURSE_LOCATION" />
 
@@ -15,23 +19,28 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme.NoActionBar">
+        android:theme="@style/AppTheme.NoActionBar"
+        android:screenOrientation="nosensor">
         <activity
             android:name=".LvlThreeDialogue"
             android:label="@string/title_activity_lvl_three_dialogue"
-            android:theme="@style/AppTheme.NoActionBar.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar.NoActionBar"
+            android:screenOrientation="nosensor"></activity>
         <activity
             android:name=".LvlTwoDialogue"
             android:label="@string/title_activity_lvl_two_dialogue"
-            android:theme="@style/AppTheme.NoActionBar.NoActionBar" />
+            android:theme="@style/AppTheme.NoActionBar.NoActionBar"
+            android:screenOrientation="nosensor"/>
         <activity
             android:name=".LvlOneDialogue"
             android:label="@string/title_activity_lvl_one_dialogue"
-            android:theme="@style/AppTheme.NoActionBar.NoActionBar" />
+            android:theme="@style/AppTheme.NoActionBar.NoActionBar"
+            android:screenOrientation="nosensor"/>
         <activity
             android:name=".ConfirmPage"
             android:label="@string/title_activity_confirm_page"
-            android:theme="@style/AppTheme.NoActionBar.NoActionBar" />
+            android:theme="@style/AppTheme.NoActionBar.NoActionBar"
+            android:screenOrientation="nosensor"/>
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.
              (See the file "res/values/google_maps_api.xml").
@@ -46,21 +55,27 @@
 
         <activity
             android:name=".Map_User"
-            android:label="@string/title_activity_map__user" />
+            android:label="@string/title_activity_map__user"
+            android:screenOrientation="nosensor"/>
         <activity
             android:name=".AboutPage"
             android:label="@string/title_activity_about_page"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:theme="@style/AppTheme.NoActionBar"
+            android:screenOrientation="nosensor"/>
         <activity
             android:name=".emergencyOptions"
             android:label="@string/title_activity_emergency_options"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".MainActivity">
+            android:theme="@style/AppTheme.NoActionBar"
+            android:screenOrientation="nosensor"/>
+        <activity android:name=".MainActivity"
+            android:screenOrientation="nosensor">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
+
             </intent-filter>
+
         </activity>
     </application>
 

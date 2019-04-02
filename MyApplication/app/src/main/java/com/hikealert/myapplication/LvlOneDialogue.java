@@ -18,16 +18,11 @@ public class LvlOneDialogue extends AppCompatActivity {
     public void goToConfirmPage(View view) {
         Intent intent = new Intent(this, ConfirmPage.class);
         startActivity(intent);
+        onBackPressed();
     }
     public void goToEmergencyOptions(View view) {
         Intent intent = new Intent(this, emergencyOptions.class);
         startActivity(intent);
         onBackPressed();
     }
-    /*public void onBackPressed() {
-        Intent intent = new Intent();
-        intent.setAction(Intent.ACTION_MAIN);
-        intent.addCategory(Intent.CATEGORY_HOME);
-        startActivity(intent);
-    }*/
 }
