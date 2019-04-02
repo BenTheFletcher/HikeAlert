@@ -4,6 +4,8 @@ import android.location.Location;
 import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
 import android.support.v4.app.ActivityCompat;
+
+import com.google.android.gms.maps.CameraUpdate;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
@@ -32,6 +34,7 @@ public class Map_User extends FragmentActivity implements OnMapReadyCallback {
                 .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
     }
+
       @Override
       public void onMapReady(GoogleMap googleMap) {
           mMap = googleMap;
@@ -43,16 +46,16 @@ public class Map_User extends FragmentActivity implements OnMapReadyCallback {
               googleMap.getUiSettings().setMyLocationButtonEnabled(true);
               LocationManager locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
               Criteria criteria = new Criteria();
-              mMap.setMapType(GoogleMap.MAP_TYPE_SATELLITE);
+              mMap.setMapType(GoogleMap.MAP_TYPE_HYBRID);
 
               Location location = locationManager.getLastKnownLocation(locationManager.getBestProvider(criteria, false));
               if (location != null)
               {
-                  googleMap.animateCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(location.getLatitude(), location.getLongitude()), 13.0f));
+                  googleMap.animateCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(location.getLatitude(), location.getLongitude()), 19));
 
                   CameraPosition cameraPosition = new CameraPosition.Builder()
                           .target(new LatLng(location.getLatitude(), location.getLongitude()))      // Sets the center of the map to location user
-                          .zoom(18)                   // Sets the zoom
+                          .zoom(19)                   // Sets the zoom
                           .bearing(0)                // Sets the orientation of the camera to east
                           .tilt(0)                   // Sets the tilt of the camera (degrees)
                           .build();                   // Creates a CameraPosition from the builder
