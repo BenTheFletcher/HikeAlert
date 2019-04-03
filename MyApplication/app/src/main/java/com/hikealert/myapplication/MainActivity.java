@@ -1,6 +1,7 @@
 package com.hikealert.myapplication;
 
 import android.bluetooth.BluetoothDevice;
+import android.bluetooth.BluetoothManager;
 import android.bluetooth.BluetoothSocket;
 import android.content.BroadcastReceiver;
 import android.content.IntentFilter;
@@ -25,7 +26,7 @@ public class MainActivity extends AppCompatActivity {
     int REQUEST_ENABLE_BT = 1;
     BluetoothAdapter bluetoothAdapter;
     BluetoothSocket bluetoothSocket;
-
+    BluetoothLeService bluetoothService;
     int connected;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -93,6 +94,9 @@ public class MainActivity extends AppCompatActivity {
             bluetoothAdapter.cancelDiscovery();
         }
 
+        bluetoothService = new BluetoothLeService();
+        bluetoothService.initialize((BluetoothManager) getSystemService(Context.BLUETOOTH_SERVICE));
+
         IntentFilter filter = new IntentFilter();
 
         filter.addAction(BluetoothDevice.ACTION_FOUND);
@@ -137,6 +141,7 @@ public class MainActivity extends AppCompatActivity {
                 //discovery finishes, dismiss progress dialog
             } else if (BluetoothDevice.ACTION_FOUND.equals(action)) {
                 //bluetooth device found
+                Log.d("Debugging", "Found a device");
                 BluetoothDevice device = (BluetoothDevice) intent.getParcelableExtra(BluetoothDevice.EXTRA_DEVICE);
                 if (device.getName() != null && device.getName().toLowerCase().contains("blue")) {
                     Log.d("Debugging", "This is good");
@@ -148,24 +153,10 @@ public class MainActivity extends AppCompatActivity {
                     Toast toast = Toast.makeText(myContext, text, duration);
                     toast.show();
 
-                        try {
-                            BluetoothDevice myDevice = device;
-
-                            Log.d("Debugging", "Got bluetooth device" + myDevice.getAddress());
-                            bluetoothAdapter.cancelDiscovery();
-                            Log.d("Debugging", "Found a device, cancelling discovery");
-                            bluetoothSocket = device.createRfcommSocketToServiceRecord(BTMODULEUUID);
-                            //bluetoothSocket = createBluetoothSocket(myDevice);
-                            Log.d("Debugging", "Created Socket");
-
-                            bluetoothSocket.connect();
-                            Log.d("Debugging", "Connected to socket");
-
-                        }
-                        catch(IOException e){
-                            Log.d("debugging", "it no work "+ e);
-                        }
-
+                    Log.d("Bluetooth stuff", "Address: " + device.getAddress());
+                    if(bluetoothService.connect(device) == true){
+                        Log.d("Connection Verified", "BLUETOOTH WORKS I CAN GO HOME NOW");
+                    }
                 }
             }
         }
