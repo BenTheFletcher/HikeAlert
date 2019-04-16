@@ -1,6 +1,9 @@
 package com.hikealert.myapplication;
 
 import android.bluetooth.BluetoothDevice;
+import android.bluetooth.BluetoothGatt;
+import android.bluetooth.BluetoothGattCharacteristic;
+import android.bluetooth.BluetoothGattService;
 import android.bluetooth.BluetoothManager;
 import android.bluetooth.BluetoothSocket;
 import android.content.BroadcastReceiver;
@@ -10,11 +13,15 @@ import android.os.Bundle;
 import android.view.*;
 import android.content.Intent;
 import android.bluetooth.BluetoothAdapter;
+import android.widget.SimpleExpandableListAdapter;
 import android.widget.Toast;
 import android.content.Context;
 import android.util.Log;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
 import java.util.UUID;
 import java.lang.reflect.Method;
 import java.io.InputStream;
@@ -27,6 +34,15 @@ public class MainActivity extends AppCompatActivity {
     BluetoothAdapter bluetoothAdapter;
     BluetoothSocket bluetoothSocket;
     BluetoothLeService bluetoothService;
+    private ArrayList<ArrayList<BluetoothGattCharacteristic>> mGattCharacteristics =
+            new ArrayList<ArrayList<BluetoothGattCharacteristic>>();
+
+    private final String LIST_NAME = "NAME";
+    private final String LIST_UUID = "UUID";
+    UUID kUartTxCharacteristicUUID = UUID.fromString("6e400002-b5a3-f393-e0a9-e50e24dcca9e");
+    UUID kUartRxCharacteristicUUID = UUID.fromString("6e400003-b5a3-f393-e0a9-e50e24dcca9e");
+    UUID kUartServiceUUID = UUID.fromString("6e400001-b5a3-f393-e0a9-e50e24dcca9e");
+
     int connected;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -128,7 +144,6 @@ public class MainActivity extends AppCompatActivity {
                 toast.show();
             }
         }
-
     }
 
     private final BroadcastReceiver mReceiver = new BroadcastReceiver() {
@@ -152,10 +167,34 @@ public class MainActivity extends AppCompatActivity {
 
                     Toast toast = Toast.makeText(myContext, text, duration);
                     toast.show();
+                    // Characteristics
 
+
+
+                    //myService.addService(bluetoothService.getSupportedGattServices().get(0));
                     Log.d("Bluetooth stuff", "Address: " + device.getAddress());
                     if(bluetoothService.connect(device) == true){
-                        Log.d("Connection Verified", "BLUETOOTH WORKS I CAN GO HOME NOW");
+                        Log.d("Connection Verified", "BLUETOOTH Works, now just for a goddamn message");
+                        try {
+                            Thread.sleep(5000);
+                        } catch (InterruptedException e) {
+                            e.printStackTrace();
+                        }
+
+                        //bluetoothService.discoverStuff();
+                        displayGattServices(bluetoothService.getSupportedGattServices());
+
+                        String testText = "Hello, World!";
+                        byte[] value = testText.getBytes();
+
+                        BluetoothGattCharacteristic sendBT =  mGattCharacteristics.get(4).get(1);
+
+                        BluetoothGatt myGatt = bluetoothService.getGatt();
+                        sendBT.setValue(value);
+                        final boolean success = myGatt.writeCharacteristic(sendBT);
+
+                        Log.d("Did we do it?", "Maybe? ->  " + success);
+                        BluetoothGattCharacteristic recvBT =  mGattCharacteristics.get(4).get(0);
                     }
                 }
             }
@@ -170,6 +209,47 @@ public class MainActivity extends AppCompatActivity {
             Log.e("debug", "could not create Insecure RFCOMM Connection", ex);
         }
         return device.createInsecureRfcommSocketToServiceRecord(BTMODULEUUID);
+    }
+
+    private void displayGattServices(List<BluetoothGattService> gattServices) {
+        if (gattServices == null) return;
+        String uuid = null;
+        String unknownServiceString = getResources().getString(R.string.unknown_service);
+        String unknownCharaString = getResources().getString(R.string.unknown_characteristic);
+        ArrayList<HashMap<String, String>> gattServiceData = new ArrayList<HashMap<String, String>>();
+        ArrayList<ArrayList<HashMap<String, String>>> gattCharacteristicData
+                = new ArrayList<ArrayList<HashMap<String, String>>>();
+        mGattCharacteristics = new ArrayList<ArrayList<BluetoothGattCharacteristic>>();
+
+        // Loops through available GATT Services.
+        for (BluetoothGattService gattService : gattServices) {
+            HashMap<String, String> currentServiceData = new HashMap<String, String>();
+            uuid = gattService.getUuid().toString();
+            currentServiceData.put(
+                    LIST_NAME, SampleGattAttributes.lookup(uuid, unknownServiceString));
+            currentServiceData.put(LIST_UUID, uuid);
+            gattServiceData.add(currentServiceData);
+
+            ArrayList<HashMap<String, String>> gattCharacteristicGroupData =
+                    new ArrayList<HashMap<String, String>>();
+            List<BluetoothGattCharacteristic> gattCharacteristics =
+                    gattService.getCharacteristics();
+            ArrayList<BluetoothGattCharacteristic> charas =
+                    new ArrayList<BluetoothGattCharacteristic>();
+
+            // Loops through available Characteristics.
+            for (BluetoothGattCharacteristic gattCharacteristic : gattCharacteristics) {
+                charas.add(gattCharacteristic);
+                HashMap<String, String> currentCharaData = new HashMap<String, String>();
+                uuid = gattCharacteristic.getUuid().toString();
+                currentCharaData.put(
+                        LIST_NAME, SampleGattAttributes.lookup(uuid, unknownCharaString));
+                currentCharaData.put(LIST_UUID, uuid);
+                gattCharacteristicGroupData.add(currentCharaData);
+            }
+            mGattCharacteristics.add(charas);
+            gattCharacteristicData.add(gattCharacteristicGroupData);
+        }
     }
     @Override
     protected void onDestroy() {
