@@ -184,7 +184,7 @@ public class MainActivity extends AppCompatActivity {
                         //bluetoothService.discoverStuff();
                         displayGattServices(bluetoothService.getSupportedGattServices());
 
-                        String testText = "Hello, World!";
+                        String testText = "This is a test message. This is only a test.";
                         byte[] value = testText.getBytes();
 
                         BluetoothGattCharacteristic sendBT =  mGattCharacteristics.get(4).get(1);
